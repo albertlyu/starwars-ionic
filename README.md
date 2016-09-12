@@ -1,4 +1,4 @@
-Star Wars (Built with Ionic)
+Star Wars Explorer
 =========
 
 An Ionic 2 app built to explore [The Star Wars API](https://swapi.co/) built by [Paul Hallett](https://github.com/phalt).

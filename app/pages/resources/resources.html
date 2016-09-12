@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let resource of resources" (click)="getResourceDetails($event, resource)">
+      {{resource[attributes[0]]}}
+      <div class="item-note" item-right>
+        {{resource[attributes[1]]}}
+      </div>
+    </button>
+  </ion-list>
+  <button full *ngIf="countRemaining && countRemaining > 0" (click)="getResources(nextUrl)">Add 10 More {{title}} ({{countRemaining}} left)</button>
+</ion-content>
