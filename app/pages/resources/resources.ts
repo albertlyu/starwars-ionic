@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Http} from '@angular/http';
-import {NavParams} from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
+import {ResourceDetailsPage} from '../resource-details/resource-details';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -13,7 +14,9 @@ export class ResourcesPage {
     nextUrl: string;
     countRemaining: number;
 
-    constructor(private http: Http, private params: NavParams) {
+    constructor(private http: Http
+              , private params: NavParams
+              , private navCtrl: NavController) {
         this.title = this.params.get('title');
         this.attributes = this.params.get('attributes');
         this.getResources('http://swapi.co/api/' + this.title.toLowerCase() + '/');
@@ -36,7 +39,6 @@ export class ResourcesPage {
             }
             this.nextUrl = data.next;
             this.countRemaining = data.count - this.resources.length;
-            console.log(data);
         });
     }
 
@@ -45,8 +47,11 @@ export class ResourcesPage {
      * @param  {MouseEvent} mouse event on click
      * @param  {Object} resource's details
      */
-    getResourceDetails(event, resource) {
-        console.log(event);
+    resourceTapped(event, resource) {
         console.log(resource);
+        this.navCtrl.push(ResourceDetailsPage, {
+            resource: resource,
+            attribute: this.attributes[0]
+        });
     }
 }

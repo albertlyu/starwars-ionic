@@ -2,7 +2,6 @@ import {Component, ViewChild} from '@angular/core';
 import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HomePage} from './pages/home/home';
-import {ListPage} from './pages/list/list';
 import {ResourcesPage} from './pages/resources/resources';
 
 @Component({
@@ -29,8 +28,7 @@ class MyApp {
       { title: 'Starships', component: ResourcesPage, attributes: ['name', 'model'] },
       { title: 'Vehicles', component: ResourcesPage, attributes: ['name', 'model'] },
       { title: 'Species', component: ResourcesPage, attributes: ['name', 'language'] },
-      { title: 'Planets', component: ResourcesPage, attributes: ['name', 'terrain'] },
-      { title: 'My First List', component: ListPage }
+      { title: 'Planets', component: ResourcesPage, attributes: ['name', 'terrain'] }
     ];
   }
 

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedResource">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{selectedResource[attributeName]}} Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="selectedResource" class="selection">
+    <b>{{selectedResource[attributeName]}}</b>
+    <br>
+    <div *ngFor="let attribute of attributes">
+        <span>{{attribute}}: </span>
+        <span>{{selectedResource[attribute]}}</span>
+        <br>
+    </div>
+  </div>
+</ion-content>
